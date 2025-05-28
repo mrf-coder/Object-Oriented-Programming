@@ -129,8 +129,56 @@ if __name__ == "__main__":
 11:26
 ```
 ```js
+class Students:
+    def __init__(self, name, house): 
+        if not name:
+            raise ValueError("Missing name")
+        if house not in ["house33", "house22", "house11", "house44"]:
+            raise ValueError("Invalid house")
+        self.name = name
+        self.house = house
+def main():
+    students = get_students()
+    print(f"{students.name} from {students.house}")  # Accessing attributes
+def get_students():
+    name = input("Name: ")
+    house = input("House: ")
+    return Students(name, house)  # Creating a Students object
+if __name__ == "__main__":
+    main()
+
 ```
 ```js
+class Students:
+    def __init__(self, name, house): 
+        if not name:
+            raise ValueError("Missing name")
+        if house not in ["house33", "house22", "house11", "house44"]:
+            raise ValueError("Invalid house")
+        self.name = name
+        self.house = house
+   # def __str__(self):
+       # return "a student"
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+# __str__ is NOT defined, so memory address will be shown
+
+def get_students():
+    name = input("Name: ").strip()
+    house = input("House: ").strip()
+    return Students(name, house)
+
+def main():
+    try:
+        student = get_students()
+        print(student)  # This will print memory address
+    except ValueError as e:
+        print("Error:", e)
+
+if __name__ == "__main__":
+    main()
+12
 ```
 ```js
 ```
