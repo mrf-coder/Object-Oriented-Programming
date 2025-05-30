@@ -181,9 +181,96 @@ if __name__ == "__main__":
 12
 ```
 ```js
+class Students:
+    def __init__(self, name, house): 
+        if not name:
+            raise ValueError("Missing name")
+        self.name = name
+        self.house = house
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+   
+    #Getter
+    @property
+    def house(self):
+        return self._house
+    
+    #Setter
+    @house.setter
+    def house(self, house):
+        if house not in ["house1", "house2", "house3", "house4"]:
+            raise ValueError("Invalid house")
+        self._house = house
+
+
+def get_students():
+    name = input("Name: ").strip()
+    house = input("House: ").strip()
+    return Students(name, house)
+
+def main():
+    try:
+        student = get_students()
+        print(student)
+    except ValueError as e:
+        print("Error:", e)
+
+if __name__ == "__main__":
+    main()
+
 ```
 ```js
+class Students:
+    def __init__(self, name, house): 
+        self.name = name
+        self.house = house
+
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    # Getter for house
+    @property
+    def house(self):
+        return self._house
+
+    # Setter for house
+    @house.setter
+    def house(self, house):
+        if house not in ["house1", "house2", "house3", "house4"]:
+            raise ValueError("Invalid house")
+        self._house = house
+
+    # Getter for name
+    @property
+    def name(self):
+        return self._name
+
+    # Setter for name
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        self._name = name
+
+
+def get_students():
+    name = input("Name: ").strip()
+    house = input("House: ").strip()
+    return Students(name, house)
+def main():
+    try:
+        student = get_students()
+        print(student)
+    except ValueError as e:
+        print("Error:", e)
+if __name__ == "__main__":
+    main()
+
 ```
+##### class int(x , base=10 )
+##### class str(objcet='')  srt.lower()  str.strip([char])
+##### class list([iterable ])   list.append() // Dict a object  12:31
 ```js
 ```
 ```js
